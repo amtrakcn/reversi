@@ -45,9 +45,9 @@ describe("Board", function(){
 			});
 		})
 	}) // end describe #grid
-	
+
 	describe("putting pieces on board", function(){
-		
+
 	})
 	describe("#full", function(){
 		it("should not begin full", function(){
@@ -65,7 +65,7 @@ describe("Board", function(){
 		  assert.equal(testBoard.full(), true);
 		})
 	})
-	
+
 })
 
 describe("Game", function(){
@@ -82,13 +82,13 @@ describe("Game", function(){
 			function makeBadMove(){
 				testGame.placePiece([3, 2], "white")
 			}
-			assert.throw(makeBadMove, Error, "Invalid Move");
+			assert.throws(makeBadMove, Error, "Invalid Move");
 		})
 		it("should not allow moves that isolate pieces", function(){
 			function makeOtherBadMove(){
 				testGame.placePiece([0, 0], "white")
 			}
-			assert.throw(makeOtherBadMove, Error, "Invalid Move");
+			assert.throws(makeOtherBadMove, Error, "Invalid Move");
 		})
 	})
 	describe("players taking turns", function(){
@@ -97,7 +97,7 @@ describe("Game", function(){
 			assert.equal(anotherGame.currentPlayer(), "black");
 		})
 		it("should switch players after one takes a turn", function(){
-			testGame.placePiece("black",[2, 3]);
+			anotherGame.placePiece([2, 3], "black");
 			assert.equal(anotherGame.currentPlayer(), "white");
 		})
 	})
